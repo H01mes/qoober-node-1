@@ -33,7 +33,8 @@ public final class StopForging extends APIServlet.APIRequestHandler {
 
     @Override
     protected JSONStreamAware processRequest(HttpServletRequest req) throws ParameterException {
-
+				API.verifyPassword(req);
+				
         String secretPhrase = ParameterParser.getSecretPhrase(req, false);
         JSONObject response = new JSONObject();
         if (secretPhrase != null) {

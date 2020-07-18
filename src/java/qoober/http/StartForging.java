@@ -33,7 +33,8 @@ public final class StartForging extends APIServlet.APIRequestHandler {
 
     @Override
     protected JSONStreamAware processRequest(HttpServletRequest req) throws ParameterException {
-
+				API.verifyPassword(req);
+				
         String secretPhrase = ParameterParser.getSecretPhrase(req, true);
         Generator generator = Generator.startForging(secretPhrase);
 
